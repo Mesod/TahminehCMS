@@ -1,0 +1,82 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='favicon.ico')
+    title لورم ایپسوم یا طرح‌نما
+    // Bootstrap core CSS
+    link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='stylesheets/blog.css', rel='stylesheet')
+  body
+    header
+      .blog-masthead
+        .container
+          nav.nav
+            a.nav-link.active(href='/') خانه
+            a.nav-link(href='/about.html') درباره من
+            a.nav-link(href='/contact.html') تماس با من
+      .blog-header
+        .container
+          h1.blog-title لورم ایپسوم یا طرح‌نما
+          p.lead.blog-description لورم ایپسوم یا طرح‌نما به متنی آزمایشی و بی‌معنی در صنعت چاپ
+    main.container(role='main')
+      .row
+        .col-sm-8.blog-main
+          mixin blog-post(post)
+            .blog-post
+              h2.blog-post-title = #{post.title}
+              p.blog-post-meta
+                | نوشته شده در تاریخ #{post.date} توسط
+                a(href='#') مسعود
+
+              p
+                | #{post.text}
+          for post in posts
+            +blog-post(post)
+          // /.blog-post
+          nav.blog-pagination
+            if pagination.new.status
+              a.btn.btn-outline-primary(href=pagination.new.link) تازه‌تر
+            else
+              a.btn.btn-outline-secondary.disabled(href='#') تازه‌تر
+            if pagination.old.status
+              a.btn.btn-outline-primary(href=pagination.old.link) قدیمی‌تر
+            else
+              a.btn.btn-outline-secondary.disabled(href='#') قدیمی‌تر
+
+        // /.blog-main
+        aside.col-sm-3.ml-sm-auto.blog-sidebar
+          .sidebar-module.sidebar-module-inset
+            h4 درباره
+            p
+              | لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.
+          .sidebar-module
+            h4 آرشیو مطالب
+            ol.list-unstyled
+              li
+                a(href='#') فروردین ۱۳۹۶
+          .sidebar-module
+            h4 شبکه‌های اجتماعی
+            ol.list-unstyled
+              li
+                a(href='#') گیت‌هاب
+              li
+                a(href='#') توئیتر
+              li
+                a(href='#') اینستاگرام
+              li
+                a(href='#') فیس بوک
+        // /.blog-sidebar
+      // /.row
+    // /.container
+    footer.blog-footer
+      p
+        | با افتخار قدرت گرفته از
+        a(href='https://getbootstrap.com/') Bootstrap
+      p
+        a(href='#') Back to top
+    //
